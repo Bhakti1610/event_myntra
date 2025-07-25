@@ -32,7 +32,7 @@ class _MainBottomNavPageState extends State<MainBottomNavPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBody: true, // Allows BottomAppBar to float over content
+      extendBody: true,
       body: _pages[_selectedIndex],
       floatingActionButton: SizedBox(
         height: 64,
