@@ -60,9 +60,9 @@ dependencies:
   badges: ^3.1.2
   dotenv: ^4.2.0
   json_annotation: ^4.9.0
-  mobile_scanner:
+  mobile_scanner: ^3.5.1
   table_calendar: ^3.2.0
-  flutter_speed_dial:
+  flutter_speed_dial: ^7.0.0
   fluttertoast: ^8.2.12
   photo_manager: ^3.7.1
   photo_manager_image_provider: ^2.2.0
@@ -113,11 +113,6 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  assets:
-      - .env
-      - assets/images/
-      - assets/svgs/
-      - assets/gifs/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
@@ -130,33 +125,6 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  fonts:
-      - family: Gilroy-Thin
-        fonts:
-          - asset: assets/fonts/Gilroy-Thin.ttf
-      - family: Gilroy-UltraLight
-        fonts:
-          - asset: assets/fonts/Gilroy-UltraLight.ttf
-      - family: Gilroy-Light
-        fonts:
-          - asset: assets/fonts/Gilroy-Light.ttf
-      - family: Gilroy-Regular
-        fonts:
-          - asset: assets/fonts/Gilroy-Regular.ttf
-      - family: Gilroy-Medium
-        fonts:
-          - asset: assets/fonts/Gilroy-Medium.ttf
-      - family: Gilroy-SemiBold
-        fonts:
-          - asset: assets/fonts/Gilroy-SemiBold.ttf
-      - family: Gilroy-Bold
-        fonts:
-          - asset: assets/fonts/Gilroy-Bold.ttf
-      - family: Gilroy-ExtraBold
-        fonts:
-          - asset: assets/fonts/Gilroy-ExtraBold.ttf
-      - family: Gilroy-Heavy
-        fonts:
-          - asset: assets/fonts/Gilroy-Heavy.ttf
+
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package

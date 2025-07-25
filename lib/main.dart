@@ -1,80 +1,26 @@
-/*
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:get_it/get_it.dart';
-import 'package:hive/hive.dart';
-import 'package:hive_flutter/adapters.dart';
-
-
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  // await Firebase.initializeApp();
-  await dotenv.load(fileName: '.env');
-  ApiUrl.getMainURL();
-
-  await Hive.initFlutter();
-
-  await init();
-
-  SystemChrome.setSystemUIOverlayStyle(
-    const SystemUiOverlayStyle(
-      statusBarColor: Colors.white,
-      // statusBarIconBrightness: Brightness.dark, // for Android
-      // statusBarBrightness: Brightness.light, // for iOS
-      // systemNavigationBarColor: Colors.white, // bottom nav bar color
-      // systemNavigationBarIconBrightness: Brightness.dark,
-    ),
-  );
-
-  runApp(
-    //     DevicePreview(
-    //   enabled: !kReleaseMode,
-    //   builder: (context) => MyApp(), // Wrap your app
-    // ),
-    const MyApp(),
-  );
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final router = GetIt.I<AppRouter>().router;
-    return MaterialApp.router(
-      title: 'MyCo Flutter',
-      themeMode: ThemeMode.system,
-      theme: AppTheme.lightTheme(context),
-      darkTheme: AppTheme.darkTheme(context),
-      routerConfig: router,
-      debugShowCheckedModeBanner: false,
-    );
-  }
-}
-*/
-import 'package:flutter/material.dart';
-
 
 void main() {
-  runApp(const MyApp());
+  runApp(const EventMyntraApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class EventMyntraApp extends StatelessWidget {
+  const EventMyntraApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'My Simple App',
+      title: 'Event Myntra',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        fontFamily: 'Gilroy-Regular',
         primarySwatch: Colors.deepPurple,
       ),
       home: const HomeScreen(),
     );
   }
 }
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -82,10 +28,13 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home Screen'),
+        title: const Text('Event Myntra Home'),
       ),
       body: const Center(
-        child: Text('Welcome to My Simple App!'),
+        child: Text(
+          'Welcome to Event Myntra!',
+          style: TextStyle(fontSize: 18),
+        ),
       ),
     );
   }
