@@ -124,7 +124,7 @@ class PermissionUtil {
           children: [
             const Icon(
               Icons.warning_amber_rounded,
-              color: AppColors.spanishYellow,
+              color: AppColors.warning,
               size: 28,
             ),
             const SizedBox(width: 10),

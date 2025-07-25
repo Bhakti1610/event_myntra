@@ -1,3 +1,4 @@
+import 'package:event_myntra/features/authentication/presentation/pages/login_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,26 +17,9 @@ class EventMyntraApp extends StatelessWidget {
         fontFamily: 'Gilroy-Regular',
         primarySwatch: Colors.deepPurple,
       ),
-      home: const HomeScreen(),
+      home: const LoginScreen(),
     );
   }
 }
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Event Myntra Home'),
-      ),
-      body: const Center(
-        child: Text(
-          'Welcome to Event Myntra!',
-          style: TextStyle(fontSize: 18),
-        ),
-      ),
-    );
-  }
-}

@@ -1,10 +1,11 @@
-/*
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:myco_flutter/core/theme/app_theme.dart';
-import 'package:myco_flutter/core/theme/colors.dart';
-import 'package:myco_flutter/core/utils/responsive.dart';
-import 'package:myco_flutter/widgets/custom_text.dart';
+
+import '../core/theme/app_theme.dart';
+import '../core/theme/colors.dart';
+import '../core/utils/responsive.dart';
+import 'custom_text.dart';
+
 
 class NewTextField extends StatelessWidget {
   final String? label;
@@ -55,7 +56,6 @@ class NewTextField extends StatelessWidget {
               color: AppTheme.getColor(context).onSurfaceVariant,
               fontSize: 14 * Responsive.getResponsiveText(context),
               fontWeight: FontWeight.w700,
-              isKey: isKey??false,
             ),
             if (isRequired) ...[
               CustomText(
@@ -208,4 +208,3 @@ class NewTextField extends StatelessWidget {
     ],
   );
 }
-*/
