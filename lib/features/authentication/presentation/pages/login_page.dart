@@ -4,6 +4,7 @@ import '../../../../core/utils/responsive.dart';
 import '../../../../widgets/custom_text.dart';
 import '../../../../widgets/custom_text_field_new.dart';
 import '../../../../core/theme/colors.dart';
+import '../../../dashboard/presentation/pages/dashboard_page.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -19,9 +20,10 @@ class _LoginScreenState extends State<LoginScreen> {
 
   void _submit() {
     if (_formKey.currentState!.validate()) {
-      debugPrint("Email/Phone: ${emailOrPhoneController.text}");
-      debugPrint("Password: ${passwordController.text}");
-      // TODO: Add your login logic here
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const DashBoardPage()),
+      );
     }
   }
 
@@ -34,11 +36,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final colors = AppTheme.getColor(context);
     final isTablet = MediaQuery.of(context).size.width > 600;
 
     return Scaffold(
-      backgroundColor: AppColors.backgroundPrimary,
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(

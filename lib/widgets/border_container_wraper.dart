@@ -1,7 +1,7 @@
-/*
 import 'package:flutter/material.dart';
-import 'package:myco_flutter/core/theme/app_theme.dart';
-import 'package:myco_flutter/core/utils/util.dart';
+import '../core/theme/app_theme.dart';
+import '../core/utils/util.dart';
+
 
 class BorderContainerWraper extends StatelessWidget {
   Color? borderColor;
@@ -59,4 +59,3 @@ class BorderContainerWraper extends StatelessWidget {
       child: child,
     );
 }
-*/

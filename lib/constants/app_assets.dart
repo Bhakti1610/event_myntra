@@ -21,6 +21,4 @@ class AppAssets {
   static const String loaderGif = '$basePath/gifs/mycoLoading.gif';
 
 
-
-
 }
