@@ -1,12 +1,10 @@
-/*
 import 'package:flutter/material.dart';
-import 'package:myco_flutter/core/theme/app_theme.dart';
-import 'package:myco_flutter/core/utils/language_manager.dart';
-import 'package:myco_flutter/core/utils/util.dart';
+
+import '../core/theme/app_theme.dart';
+import '../core/utils/util.dart';
 
 class CustomText extends StatelessWidget {
   final String text;
-  final bool isKey;
   final double fontSize;
   final FontWeight fontWeight;
   final Color? color;
@@ -20,7 +18,6 @@ class CustomText extends StatelessWidget {
   const CustomText(
     this.text, {
     super.key,
-    this.isKey = true,
     this.fontSize = 16,
     this.fontWeight = FontWeight.w400,
     this.color,
@@ -33,7 +30,7 @@ class CustomText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Text(
-    isKey ? LanguageManager().get(text) : text,
+    text,
     textAlign: textAlign,
     maxLines: maxLines,
     overflow: overflow,
@@ -48,4 +45,3 @@ class CustomText extends StatelessWidget {
     ),
   );
 }
-*/
