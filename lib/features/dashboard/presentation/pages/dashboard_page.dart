@@ -11,8 +11,6 @@ class DashBoardPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final isTablet = Responsive.isTablet(context);
     final crossAxisCount = isTablet ? 3 : 2;
-    final cardHeight = isTablet ? 120.0 : 100.0;
-
     final dashboardItems = [
       'Today Registered',
       "Today's Reg Event",
@@ -32,38 +30,42 @@ class DashBoardPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const DashboardAppBar(),
-              const SizedBox(height: 16),
+              const SizedBox(height: 12),
               Expanded(
                 child: GridView.builder(
-                  padding: const EdgeInsets.only(bottom: 80),
+                  padding: const EdgeInsets.only(bottom: 60),
                   itemCount: dashboardItems.length,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: crossAxisCount,
-                    crossAxisSpacing: 12,
-                    mainAxisSpacing: 12,
-                    childAspectRatio: isTablet ? 1.3 : 1,
+                    crossAxisSpacing: 10,
+                    mainAxisSpacing: 10,
+                    childAspectRatio: isTablet ? 1.5 : 1.3, // tighter shape
                   ),
                   itemBuilder: (context, index) {
-                    return Container(
-                      height: cardHeight,
-                      decoration: BoxDecoration(
-                        color: Colors.grey.shade200,
-                        borderRadius: BorderRadius.circular(12),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.04),
-                            blurRadius: 4,
-                            offset: const Offset(2, 2),
-                          )
-                        ],
-                      ),
-                      padding: const EdgeInsets.all(12),
-                      child: Center(
-                        child: CustomText(
-                          dashboardItems[index],
-                          fontSize: isTablet ? 16 : 14,
-                          fontWeight: FontWeight.w600,
-                          textAlign: TextAlign.center,
+                    return Material(
+                      color: Colors.white,
+                      elevation: 3,
+                      borderRadius: BorderRadius.circular(10),
+                      child: InkWell(
+                        borderRadius: BorderRadius.circular(10),
+                        onTap: () {
+                          // TODO: Add navigation or tap action
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 10,
+                            horizontal: 8,
+                          ),
+                          child: Center(
+                            child: CustomText(
+                              dashboardItems[index],
+                              fontSize: isTablet ? 13 : 12,
+                              fontWeight: FontWeight.w500,
+                              textAlign: TextAlign.center,
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
                         ),
                       ),
                     );
@@ -74,6 +76,8 @@ class DashBoardPage extends StatelessWidget {
           ),
         ),
       ),
+
     );
+
   }
 }

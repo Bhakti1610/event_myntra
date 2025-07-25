@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../core/theme/app_theme.dart';
 import '../../../../core/utils/responsive.dart';
+import '../../../../widgets/custom_bottom_nav_bar.dart';
 import '../../../../widgets/custom_text.dart';
 import '../../../../widgets/custom_text_field_new.dart';
 import '../../../../core/theme/colors.dart';
@@ -20,12 +21,13 @@ class _LoginScreenState extends State<LoginScreen> {
 
   void _submit() {
     if (_formKey.currentState!.validate()) {
-      Navigator.push(
+      Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const DashBoardPage()),
+        MaterialPageRoute(builder: (_) => const MainBottomNavPage()),
       );
     }
   }
+
 
   @override
   void dispose() {
@@ -39,6 +41,7 @@ class _LoginScreenState extends State<LoginScreen> {
     final isTablet = MediaQuery.of(context).size.width > 600;
 
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
