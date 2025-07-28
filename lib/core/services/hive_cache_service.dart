@@ -1,13 +1,12 @@
-/*
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
-import 'cache_service.dart';
 
+import 'cache_service.dart';
 
 /// A caching service implementation that uses Hive for local storage.
 class HiveCacheService implements CacheService {
-    /// Initializes Hive for the application and registers all necessary adapters.
+  /// Initializes Hive for the application and registers all necessary adapters.
   /// This should be called once in main.dart before runApp().
   static Future<void> init() async {
     await Hive.initFlutter();
@@ -17,7 +16,7 @@ class HiveCacheService implements CacheService {
   /// Centralized function to register all Hive TypeAdapters.
   static void _registerAdapters() {
     // Check if adapters are already registered to avoid errors during hot reloads.
-    if (!Hive.isAdapterRegistered(HomeMenuResponseAdapter().typeId)) {
+    /*if (!Hive.isAdapterRegistered(HomeMenuResponseAdapter().typeId)) {
       Hive.registerAdapter(HomeMenuResponseAdapter());
     }
     if (!Hive.isAdapterRegistered(AppmenuAdapter().typeId)) {
@@ -43,7 +42,7 @@ class HiveCacheService implements CacheService {
     }
     if (!Hive.isAdapterRegistered(TodayBirthDayAdapter().typeId)) {
       Hive.registerAdapter(TodayBirthDayAdapter());
-    }
+    }*/
   }
 
   /// Opens a Hive box. If the box is already open, it returns the existing instance.
@@ -67,4 +66,3 @@ class HiveCacheService implements CacheService {
     await box.delete(key);
   }
 }
-*/
