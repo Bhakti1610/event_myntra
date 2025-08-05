@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../../../core/theme/app_theme.dart';
 import '../../../../core/utils/responsive.dart';
-import '../../../../widgets/custom_text.dart';
 import '../widgets/dashboard_app_bar.dart';
+import '../widgets/dashboard_item_card.dart';
 
 class DashBoardPage extends StatelessWidget {
   const DashBoardPage({super.key});
@@ -11,13 +11,44 @@ class DashBoardPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final isTablet = Responsive.isTablet(context);
     final crossAxisCount = isTablet ? 3 : 2;
-    final dashboardItems = [
-      'Today Registered',
-      "Today's Reg Event",
-      "Today's Payment",
-      "Today's Ticket Sales",
-      "Today's Sendoff",
-      "Total Vendor",
+
+    final dashboardData = [
+      {
+        "title": "Today Registered",
+        "count": "12",
+        "icon": Icons.person_add,
+        "colors": [Colors.blue, Colors.blueAccent],
+      },
+      {
+        "title": "Today's Reg Event",
+        "count": "5",
+        "icon": Icons.event,
+        "colors": [Colors.purple, Colors.deepPurpleAccent],
+      },
+      {
+        "title": "Today's Payment",
+        "count": "₹8500",
+        "icon": Icons.payments,
+        "colors": [Colors.green, Colors.teal],
+      },
+      {
+        "title": "Today's Ticket Sales",
+        "count": "48",
+        "icon": Icons.confirmation_number,
+        "colors": [Colors.orange, Colors.deepOrange],
+      },
+      {
+        "title": "Today's Sendoff",
+        "count": "3",
+        "icon": Icons.emoji_people,
+        "colors": [Colors.indigo, Colors.indigoAccent],
+      },
+      {
+        "title": "Total Vendor",
+        "count": "22",
+        "icon": Icons.store,
+        "colors": [Colors.pink, Colors.redAccent],
+      },
     ];
 
     return Scaffold(
@@ -34,40 +65,24 @@ class DashBoardPage extends StatelessWidget {
               Expanded(
                 child: GridView.builder(
                   padding: const EdgeInsets.only(bottom: 60),
-                  itemCount: dashboardItems.length,
+                  itemCount: dashboardData.length,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: crossAxisCount,
                     crossAxisSpacing: 10,
                     mainAxisSpacing: 10,
-                    childAspectRatio: isTablet ? 1.5 : 1.3, // tighter shape
+                    childAspectRatio: isTablet ? 1.5 : 1.3,
                   ),
                   itemBuilder: (context, index) {
-                    return Material(
-                      color: Colors.white,
-                      elevation: 3,
-                      borderRadius: BorderRadius.circular(10),
-                      child: InkWell(
-                        borderRadius: BorderRadius.circular(10),
-                        onTap: () {
-                          // TODO: Add navigation or tap action
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(
-                            vertical: 10,
-                            horizontal: 8,
-                          ),
-                          child: Center(
-                            child: CustomText(
-                              dashboardItems[index],
-                              fontSize: isTablet ? 13 : 12,
-                              fontWeight: FontWeight.w500,
-                              textAlign: TextAlign.center,
-                              maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ),
-                        ),
-                      ),
+                    final item = dashboardData[index];
+                    return DashboardItemCard(
+                      title: item['title'] as String,
+                      count: item['count'] as String,
+                      icon: item['icon'] as IconData,
+                      gradientColors: item['colors'] as List<Color>,
+                      isTablet: isTablet,
+                      onTap: () {
+                        // TODO: Add tap action
+                      },
                     );
                   },
                 ),
@@ -76,8 +91,6 @@ class DashBoardPage extends StatelessWidget {
           ),
         ),
       ),
-
     );
-
   }
 }
